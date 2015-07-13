@@ -2,8 +2,13 @@
 
 
 <% @questions.each  do |question| %>
-  <%= link_to question.title, question_path(question) %>
+
 <% end %>
 
 
-<button class="links left-link"><%= link_to "Add a Question", new_question_path %></button>
+<button class="links left-link"><%= link_to 'New Question', new_question_path, id: "new_link", remote: true %>
+</button>
+
+<ul id="questions">
+<%= render @questions %>
+</ul>

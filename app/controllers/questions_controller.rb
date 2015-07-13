@@ -16,9 +16,14 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.save
       flash[:notice] = "Question saved!"
-      redirect_to questions_path
     else
-      render :new
+      flash[:error] = "errors!"
+      redirect_to new_question_path
+    end
+
+    respond_to do |format|
+      format.html {  redirect_to questions_path }
+      format.js
     end
   end
 
@@ -33,12 +38,19 @@ class QuestionsController < ApplicationController
     else
       render :edit
     end
+    respond_to do |format|
+      format.html {  redirect_to questions_path }
+      format.js
+    end
   end
 
   def destroy
-    @question =Question.find(params[:id])
+    @question = Question.find(params[:id])
     @question.destroy
-    redirect_to questions_path
+    respond_to do |format|
+      format.html {  redirect_to questions_path }
+      format.js
+    end
   end
 
 

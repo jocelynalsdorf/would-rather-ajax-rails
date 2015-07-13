@@ -1,0 +1,10 @@
+
+
+<li><h1><%= link_to question.title, question_path(question) %></h1>
+  <h3><%= question.answer_a %></h3><h3><%= question.answer_b %></h3>
+  <p class="btn-default"><%= link_to "Delete Stupid Question", question_path(question),
+                              :data => {:confirm => "Confirm?",
+                              :method => "delete"} %></p>
+
+
+</li>

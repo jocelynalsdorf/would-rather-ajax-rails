@@ -9,10 +9,10 @@
 
 
 
-<p class="btn-default"><%= link_to "Edit Question", edit_question_path(@question) %></p>
+<p class="btn-default"><%= link_to "Edit Question", edit_question_path(@question), remote: true %></p>
 <p class="btn-default"><%= link_to "Delete Question", question_path(@question),
                             :data => {:confirm => "Confirm?",
-                            :method => "delete"} %></p>
+                            :method => "delete"}, remote: true %></p>
 
 
 
