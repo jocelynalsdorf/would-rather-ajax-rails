@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "questions#index"
 
-  resources :questions
-  resources :comments
+  resources :questions do
+    resources :comments
+  end
 end

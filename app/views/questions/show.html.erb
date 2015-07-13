@@ -1,0 +1,35 @@
+<h1><%= @question.title %></h1>
+
+
+
+
+
+<h3><%= @question.answer_a %></h3><h3><%= @question.answer_b %></h3>
+
+
+
+
+<p class="btn-default"><%= link_to "Edit Question", edit_question_path(@question) %></p>
+<p class="btn-default"><%= link_to "Delete Question", question_path(@question),
+                            :data => {:confirm => "Confirm?",
+                            :method => "delete"} %></p>
+
+
+
+<% if @question.comments.any? %>
+        <h4 class="sub-title">Comments:</h4>
+
+        <ul class="comment-list">
+          <% @question.comments.each do |comment| %>
+            <li class="comment-items">
+              <%= link_to comment.text, question_comment_path(@question, comment) %>
+
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>There are no comments yet!</p>
+      <% end %>
+
+ <p><%= link_to "Add comment", new_question_comment_path(@question) %></p>
+<p><%= link_to "Home", questions_path %></p>
