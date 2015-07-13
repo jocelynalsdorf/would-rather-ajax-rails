@@ -1,1 +1,4 @@
 <p><%= @comment.text %></p>
+<p class="btn-default"><%= link_to "Delete Stupid Comment", question_comment_path(@question, @comment),
+                            :data => {:confirm => "Confirm?",
+                            :method => "delete"} %></p>
